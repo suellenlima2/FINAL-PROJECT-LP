@@ -1,4 +1,5 @@
 import json
+import os
 from time import sleep
 
 def carregarFuncionarios():
@@ -20,7 +21,7 @@ def menuInicial():
     opcao = int(input("Digite a opção desejada: "))
     
     if opcao == 1:
-        opcao = menuCliente()
+        menuCliente()
     elif opcao == 2:
         funcionarios = carregarFuncionarios()
 
@@ -39,8 +40,7 @@ def menuInicial():
     else:
         print("Opção inválida")
 
-def menuPizzas():
-    MenuPizzas = {
+MenuPizzas = {
         "Mussarela": {"preco": 25.00},
         "Calabresa": {"preco": 30.00},
         "Portuguesa": {"preco": 35.00},
@@ -54,14 +54,86 @@ def menuPizzas():
         "Chocolate": {"preco": 30.00},
         "Banana": {"preco": 30.00},
         "Brigadeiro": {"preco": 30.00}
-    }
+}
 
+def exibirPizzas():
     print("\n----------------MENU DE PIZZAS----------------")
     for pizza, dados in MenuPizzas.items():
         print(f"{pizza} - R$ {dados['preco']:.2f}")
     print("------------------------------------------------")
     sleep(2)
     menuCliente()
+
+arquivoVendas = "vendas.json"
+
+def carregarVendas():
+    if os.path.exists(arquivoVendas):
+        try:
+            with open(arquivoVendas, "r") as arquivo:
+                return json.load(arquivo)
+        except json.JSONDecodeError:
+            print("Arquivo de vendas corrompido. Restaurando como vazio.")
+            return []
+    return []
+
+def salvarVendas(vendas):
+    with open(arquivoVendas, "w") as arquivo:
+        json.dump(vendas, arquivo, indent=4)
+
+def registrarPedido(pedido):
+    vendas = carregarVendas()
+    numeroPedido = len(vendas) + 1  
+
+    totalPedido = sum(item["precoTotal"] for item in pedido)
+
+    novoPedido = {
+        "id": numeroPedido,
+        "pizzas": pedido,
+        "totalPedido": totalPedido
+    }
+
+    vendas.append(novoPedido) 
+    salvarVendas(vendas)  
+    return numeroPedido
+
+def fazerPedido():
+     pedidoCompleto = []
+     continuar = 's'
+
+     while continuar == 's':
+        saborPizza = input("Digite o nome da pizza desejada: ").capitalize()
+        quantidade = int(input(f"Digite a quantidade de pizzas do sabor {saborPizza}: "))
+        
+        if saborPizza in MenuPizzas:
+            precoUnitario = MenuPizzas[saborPizza]["preco"]
+            precoTotal = precoUnitario * quantidade
+            pedidoCompleto.append({
+                "pizza": saborPizza,
+                "quantidade": quantidade,
+                "precoUnitario": precoUnitario,
+                "precoTotal": precoTotal
+            })
+            print(f"Adicionado ao pedido: {quantidade} {saborPizza}(s) - R$ {precoTotal:.2f}")
+        else:
+            print("Pizza não encontrada no menu. Tente novamente.")
+        
+        continuar = input("Deseja pedir mais alguma pizza? (s/n): ").strip().lower()
+        if continuar == 's':
+            continue
+        else:
+            if pedidoCompleto:
+                numeroPedido = registrarPedido(pedidoCompleto)
+                totalPedido = sum(item["precoTotal"] for item in pedidoCompleto)
+                print(f"\nPedido finalizado (Pedido nº {numeroPedido}):")
+                
+                for item in pedidoCompleto:
+                    print(f"- {item['quantidade']}x {item['pizza']} (R$ {item['precoTotal']:.2f})")
+                print(f"Total do pedido: R$ {totalPedido:.2f}")
+                menuCliente()
+            else:
+                print("Nenhuma pizza foi pedida. Tente novamente.")
+                menuCliente()
+
 
 
 def menuCliente():
@@ -73,10 +145,11 @@ def menuCliente():
     opcao = int(input("Digite a opção desejada: "))
     
     if opcao == 1:
-        menuPizzas()
+        exibirPizzas()
 
     elif opcao == 2:
-        print("Fazer pedido")
+        fazerPedido()
+        
     elif opcao == 3:
         print("Consultar Pedido")
     elif opcao == 4:
@@ -116,3 +189,4 @@ def main():
     menuInicial()
 
 main()
+

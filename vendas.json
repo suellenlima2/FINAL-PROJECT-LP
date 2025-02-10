@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "pizza": "Calabresa",
+        "quantidade": 2,
+        "precoUnitario": 30.0,
+        "precoTotal": 60.0
+    },
+    {
+        "id": 2,
+        "pizza": "Banana",
+        "quantidade": 1,
+        "precoUnitario": 30.0,
+        "precoTotal": 30.0
+    },
+    {
+        "id": 3,
+        "pizza": "Calabresa",
+        "quantidade": 1,
+        "precoUnitario": 30.0,
+        "precoTotal": 30.0
+    },
+    {
+        "id": 4,
+        "pizza": "Mussarela",
+        "quantidade": 1,
+        "precoUnitario": 25.0,
+        "precoTotal": 25.0
+    },
+    {
+        "id": 5,
+        "pizza": "Banana",
+        "quantidade": 1,
+        "precoUnitario": 30.0,
+        "precoTotal": 30.0
+    },
+    {
+        "id": 6,
+        "pizza": "Mussarela",
+        "quantidade": 1,
+        "precoUnitario": 25.0,
+        "precoTotal": 25.0
+    },
+    {
+        "id": 7,
+        "pizzas": [
+            {
+                "pizza": "Banana",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            },
+            {
+                "pizza": "Calabresa",
+                "quantidade": 2,
+                "precoUnitario": 30.0,
+                "precoTotal": 60.0
+            }
+        ],
+        "totalPedido": 90.0
+    },
+    {
+        "id": 8,
+        "pizzas": [
+            {
+                "pizza": "Napolitana",
+                "quantidade": 1,
+                "precoUnitario": 35.0,
+                "precoTotal": 35.0
+            },
+            {
+                "pizza": "Banana",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedido": 65.0
+    }
+]
