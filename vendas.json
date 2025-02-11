@@ -76,5 +76,35 @@
             }
         ],
         "totalPedido": 65.0
+    },
+    {
+        "id": 9,
+        "pizzas": [
+            {
+                "pizza": "Calabresa",
+                "quantidade": 2,
+                "precoUnitario": 30.0,
+                "precoTotal": 60.0
+            },
+            {
+                "pizza": "Banana",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedido": 90.0
+    },
+    {
+        "id": 10,
+        "pizzas": [
+            {
+                "pizza": "Calabresa",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedido": 30.0
     }
 ]
