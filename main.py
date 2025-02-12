@@ -2,44 +2,6 @@ import json
 import os
 from time import sleep
 
-def carregarFuncionarios():
-    try:
-        with open("funcionarios.json", "r", encoding="utf-8") as arquivo:
-            funcionarios = json.load(arquivo)
-        return funcionarios
-    except FileNotFoundError:
-        print("Arquivo de funcionários não encontrado.")
-        return []
-    except json.JSONDecodeError:
-        print("Erro ao ler o arquivo JSON.")
-        return []
-
-def menuInicial():
-    print("\n1 - Cliente")
-    print("2 - Funcionário")
-    print("3 - Sair do sistema")
-    opcao = int(input("\nDigite a opção desejada: "))
-    
-    if opcao == 1:
-        menuCliente()
-    elif opcao == 2:
-        funcionarios = carregarFuncionarios()
-
-        codigoFuncionario = input("Digite o seu código de funcionário: ").strip()
-        
-        for funcionario in funcionarios:
-            if str(funcionario["id"]) == codigoFuncionario:
-                print(f"Acesso permitido! Bem-vindx, {funcionario['nome']}.")
-                return menuFuncionario()
-
-        print("Código inválido! Acesso negado.")
-        return False
-        
-    elif opcao == 3:
-        print("Até mais!")
-    else:
-        print("Opção inválida")
-
 MenuPizzas = {
         "Mussarela": {"preco": 25.00},
         "Calabresa": {"preco": 30.00},
@@ -62,7 +24,7 @@ def exibirPizzas():
         print(f"{pizza} - R$ {dados['preco']:.2f}")
     print("------------------------------------------------")
     sleep(2)
-    menuCliente()
+    menuPrincipal()
 
 arquivoVendas = "vendas.json"
 
@@ -130,10 +92,10 @@ def fazerPedido():
                 for item in pedidoCompleto:
                     print(f"- {item['quantidade']}x {item['pizza']} (R$ {item['precoTotal']:.2f})")
                 print(f"Total do pedido: R$ {totalPedido:.2f}")
-                menuCliente()
+                menuPrincipal()
             else:
                 print("\nNenhuma pizza foi pedida. Tente novamente.")
-                menuCliente()
+                menuPrincipal()
 
 def consultarPedido(id):
     try:
@@ -156,22 +118,43 @@ def consultarPedido(id):
             nId = int(input("Digite o número do pedido: "))
             consultarPedido(nId)
         else:
-            menuCliente()
+            menuPrincipal()
 
     except FileNotFoundError:
         print("\nArquivo de pedidos não encontrado.")
     except json.JSONDecodeError:
         print("\nErro ao ler o arquivo de pedidos.")
 
+def cancelarPedido():
+    vendas = carregarVendas()
+    
+    if not vendas:
+        print("\nNão há pedidos registrados.")
+        return
+    
+    try:
+        idPedido = int(input("\nDigite o ID do pedido que deseja cancelar: "))
+    except ValueError:
+        print("\nID inválido. Digite um número válido.")
+        return cancelarPedido()
 
+    pedidosAtualizados = [pedido for pedido in vendas if pedido["id"] != idPedido]
 
-def menuCliente():
-    print("\n------------------------------------------------")
-    print("1 - Menu de pizzas")
+    if len(pedidosAtualizados) == len(vendas):
+        print(f"\nPedido com ID {idPedido} não encontrado.")
+    else:
+        salvarVendas(pedidosAtualizados)
+        print(f"\nPedido nº {idPedido} cancelado com sucesso!")
+
+    sleep(2)
+    menuPrincipal()
+
+def menuPrincipal():
+    print("\n1 - Menu de pizzas")
     print("2 - Fazer pedido")
     print("3 - Consultar Pedido")
     print("4 - Cancelar Pedido")
-    print("5 - Voltar ao menu inicial")
+    print("5 - Encerrar o programa")
     opcao = int(input("\nDigite a opção desejada: "))
     
     if opcao == 1:
@@ -184,41 +167,20 @@ def menuCliente():
         id = int(input("Digite o número do pedido: "))
         consultarPedido(id)
     elif opcao == 4:
-        print("Cancelar Pedido")
+        cancelarPedido()
     elif opcao == 5:
-        menuInicial()
+        print("Encerrando o programa...")
+        sleep(2)
+        exit()
     else:
         print("Opção inválida")
 
-def menuFuncionario():
-    print("\n---------------MENU-----------------")
-    print("1 - Cadastrar pizza")
-    print("2 - Alterar pizza")
-    print("3 - Excluir pizza")
-    print("4 - Consultar pedidos")
-    print("5 - Voltar ao menu inicial")
-    opcao = int(input("\nDigite a opção desejada: "))
-    
-    if opcao == 1:
-        print("Cadastrar pizza")
-    elif opcao == 2:
-        print("Alterar pizza")
-    elif opcao == 3:
-        print("Excluir pizza")
-    elif opcao == 4:
-        print("Consultar pedidos")
-    elif opcao == 5:
-        print("--------------------------")
-        menuInicial()
-    else:
-        print("Opção inválida")
-    
 
 def main():
     print("--------------------------")
     print("Bem vindx a Pizzaria SS")
     print("--------------------------")
-    menuInicial()
+    menuPrincipal()
 
 main()
 

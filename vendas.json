@@ -106,5 +106,29 @@
             }
         ],
         "totalPedido": 30.0
+    },
+    {
+        "id": 11,
+        "pizzas": [
+            {
+                "pizza": "Calabresa",
+                "quantidade": 2,
+                "precoUnitario": 30.0,
+                "precoTotal": 60.0
+            }
+        ],
+        "totalPedido": 60.0
+    },
+    {
+        "id": 12,
+        "pizzas": [
+            {
+                "pizza": "Calabresa",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedido": 30.0
     }
 ]
