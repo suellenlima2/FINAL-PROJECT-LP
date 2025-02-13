@@ -1,6 +1,36 @@
 import json
 import os
+import random
 from time import sleep
+
+cupom = {
+    "PIZZA10": 0.10,  # 10% de desconto para compras acima de 100.00
+    "DOCEPIZZA": 0.15,  # 15% de desconto para pedidos só de pizzas doces
+    "PEDEMAIS5": 0.05  # 5% de desconto para qualquer pedido
+}
+
+def aplicarDesconto(total, pedido):
+    print("\nVocê tem um cupom de desconto? Digite o código ou pressione ENTER para continuar: ")
+    cupomDigitado = input().strip().upper()
+    
+    if cupomDigitado in cupom:
+        if cupomDigitado == "PIZZA10" and total >= 100.00:
+            desconto = total * cupom[cupomDigitado]
+        elif cupomDigitado == "DOCEPIZZA" and all(p["pizza"] in ["Chocolate", "Banana", "Brigadeiro", "Romeu e Julieta"] for p in pedido):
+            desconto = total * cupom[cupomDigitado]
+        elif cupomDigitado == "PEDEMAIS5":
+            desconto = total * cupom[cupomDigitado]
+        else:
+            print("\nCupom não aplicável para este pedido.")
+            return total
+        
+        totalComDesconto = total - desconto
+        print(f"Desconto aplicado: R$ {desconto:.2f}")
+        print(f"Total com desconto: R$ {totalComDesconto:.2f}")
+        return totalComDesconto
+    
+    print("\nCupom inválido ou não utilizado.")
+    return total
 
 MenuPizzas = {
         "Mussarela": {"preco": 25.00},
@@ -28,6 +58,27 @@ def exibirPizzas():
 
 arquivoVendas = "vendas.json"
 
+def escolherPagamento():
+    print("\nEscolha o método de pagamento:")
+    print("1 - Dinheiro")
+    print("2 - Pix")
+
+    opcoesPagamento = {1: "Dinheiro", 2: "Pix"}
+    
+    try:
+        escolha = int(input("Opção: "))
+        
+        if (escolha == 1):
+            troco = float(input("Digite o valor do troco: "))
+        elif (escolha == 2):
+            print("\nPague o valor total do pedido via chave Pix: pizzariass@outlook.com")
+            sleep(5)
+            print("Obs.: O pedido será liberado após a confirmação do pagamento.")
+
+        return opcoesPagamento.get(escolha, "Desconhecido")
+    except ValueError:
+        return "Desconhecido"
+
 def carregarVendas():
     if os.path.exists(arquivoVendas):
         try:
@@ -52,11 +103,30 @@ def registrarPedido(pedido):
         "id": numeroPedido,
         "pizzas": pedido,
         "totalPedido": totalPedido
-    }
+    }  
+
+    metodoPagamento = escolherPagamento()
+    novoPedido["pagamento"] = metodoPagamento
 
     vendas.append(novoPedido) 
     salvarVendas(vendas)  
     return numeroPedido
+
+def endereçoEntrega():
+    tempo = random.randint(30, 90)
+    print("\nPedido para entrega ou retirada?")
+    resp = input().strip().lower()
+    if resp == 'entrega':
+        print("\nDigite o endereço de entrega: ")
+        endereco = input("Endereço: ")
+        print(f"\nPedido será entregue em: {endereco} em até {tempo} minutos.")
+    elif resp == 'retirada':
+        print("\nVá a nossa loja no endereço: Rua dos Bobos, nº 0")
+        print(f"Seu pedido estará pronto em {tempo} minutos.")
+    else:
+        print("Opção inválida. Tente novamente.")
+        endereçoEntrega()
+
 
 def fazerPedido():
      pedidoCompleto = []
@@ -83,15 +153,19 @@ def fazerPedido():
         if continuar == 's':
             continue
         else:
+            print("\nATENCAO: Utilize o cupom PIZZA10 para ganhar 10% de desconto em sua compra acima de 100.00!")
+            print("ATENCAO: Utilize o cupom DOCEPIZZA para ganhar 15% de desconto em  pedidos só de pizzas doces!")
             if pedidoCompleto:
                 numeroPedido = registrarPedido(pedidoCompleto)
                 totalPedido = sum(item["precoTotal"] for item in pedidoCompleto)
+                totalPedido = aplicarDesconto(totalPedido, pedidoCompleto)
                 print(f"\nPedido nº {numeroPedido} finalizado")
                 print("Código do seu pedido: ", numeroPedido)
                 
                 for item in pedidoCompleto:
                     print(f"- {item['quantidade']}x {item['pizza']} (R$ {item['precoTotal']:.2f})")
                 print(f"Total do pedido: R$ {totalPedido:.2f}")
+                endereçoEntrega()
                 menuPrincipal()
             else:
                 print("\nNenhuma pizza foi pedida. Tente novamente.")
@@ -169,7 +243,7 @@ def menuPrincipal():
     elif opcao == 4:
         cancelarPedido()
     elif opcao == 5:
-        print("Encerrando o programa...")
+        print("Volte Sempre!!!")
         sleep(2)
         exit()
     else:
