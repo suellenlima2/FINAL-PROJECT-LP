@@ -130,5 +130,241 @@
             }
         ],
         "totalPedido": 30.0
+    },
+    {
+        "id": 13,
+        "pizzas": [
+            {
+                "pizza": "Calabresa",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedido": 30.0,
+        "pagamento": "Pix"
+    },
+    {
+        "id": 14,
+        "pizzas": [
+            {
+                "pizza": "Banana",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedido": 30.0,
+        "pagamento": "Pix"
+    },
+    {
+        "id": 15,
+        "pizzas": [
+            {
+                "pizza": "Mussarela",
+                "quantidade": 2,
+                "precoUnitario": 25.0,
+                "precoTotal": 50.0
+            },
+            {
+                "pizza": "Brigadeiro",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedido": 80.0,
+        "pagamento": "Pix"
+    },
+    {
+        "id": 16,
+        "pizzas": [
+            {
+                "pizza": "Marguerita",
+                "quantidade": 1,
+                "precoUnitario": 35.0,
+                "precoTotal": 35.0
+            }
+        ],
+        "totalPedido": 35.0,
+        "pagamento": "Dinheiro"
+    },
+    {
+        "id": 17,
+        "pizzas": [
+            {
+                "pizza": "Calabresa",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedido": 30.0,
+        "pagamento": "Pix"
+    },
+    {
+        "id": 18,
+        "pizzas": [
+            {
+                "pizza": "Portuguesa",
+                "quantidade": 1,
+                "precoUnitario": 35.0,
+                "precoTotal": 35.0
+            },
+            {
+                "pizza": "Chocolate",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedido": 65.0,
+        "pagamento": "Pix"
+    },
+    {
+        "id": 19,
+        "pizzas": [
+            {
+                "pizza": "Brigadeiro",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            },
+            {
+                "pizza": "Banana",
+                "quantidade": 2,
+                "precoUnitario": 30.0,
+                "precoTotal": 60.0
+            }
+        ],
+        "totalPedido": 90.0,
+        "pagamento": "Pix"
+    },
+    {
+        "id": 20,
+        "pizzas": [
+            {
+                "pizza": "Atum",
+                "quantidade": 2,
+                "precoUnitario": 35.0,
+                "precoTotal": 70.0
+            }
+        ],
+        "totalPedido": 70.0,
+        "cupom": "PEDEMAIS5",
+        "desconto": 3.5,
+        "totalComDesconto": 66.5
+    },
+    {
+        "id": 21,
+        "pizzas": [
+            {
+                "pizza": "Mussarela",
+                "quantidade": 4,
+                "precoUnitario": 25.0,
+                "precoTotal": 100.0
+            }
+        ],
+        "totalPedido": 100.0,
+        "cupom": "PIZZA10",
+        "desconto": 10000.0,
+        "totalComDesconto": -9900.0
+    },
+    {
+        "id": 22,
+        "pizzas": [
+            {
+                "pizza": "Portuguesa",
+                "quantidade": 1,
+                "precoUnitario": 35.0,
+                "precoTotal": 35.0
+            }
+        ],
+        "totalPedido": 35.0,
+        "pagamento": "Dinheiro"
+    },
+    {
+        "id": 23,
+        "pizzas": [
+            {
+                "pizza": "Napolitana",
+                "quantidade": 2,
+                "precoUnitario": 35.0,
+                "precoTotal": 70.0
+            }
+        ],
+        "totalPedido": 70.0,
+        "cupom": "PEDEMAIS5",
+        "desconto": 3.5,
+        "totalComDesconto": 66.5
+    },
+    {
+        "id": 24,
+        "pizzas": [
+            {
+                "pizza": "Mussarela",
+                "quantidade": 1,
+                "precoUnitario": 25.0,
+                "precoTotal": 25.0
+            },
+            {
+                "pizza": "Atum",
+                "quantidade": 1,
+                "precoUnitario": 35.0,
+                "precoTotal": 35.0
+            },
+            {
+                "pizza": "Banana",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedidoSemDesconto": 90.0,
+        "pagamento": "Pix"
+    },
+    {
+        "id": 25,
+        "pizzas": [
+            {
+                "pizza": "Calabresa",
+                "quantidade": 2,
+                "precoUnitario": 30.0,
+                "precoTotal": 60.0
+            },
+            {
+                "pizza": "Chocolate",
+                "quantidade": 2,
+                "precoUnitario": 30.0,
+                "precoTotal": 60.0
+            }
+        ],
+        "totalPedidoSemDesconto": 120.0,
+        "pagamento": "Desconhecido"
+    },
+    {
+        "id": 26,
+        "pizzas": [
+            {
+                "pizza": "Napolitana",
+                "quantidade": 1,
+                "precoUnitario": 35.0,
+                "precoTotal": 35.0
+            },
+            {
+                "pizza": "Calabresa",
+                "quantidade": 2,
+                "precoUnitario": 30.0,
+                "precoTotal": 60.0
+            },
+            {
+                "pizza": "Brigadeiro",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedidoSemDesconto": 125.0,
+        "pagamento": "Desconhecido"
     }
 ]
