@@ -1,9 +1,5 @@
 #módulo E
-cupom = {
-    "PIZZA10": 0.10,  # 10% de desconto para compras acima de 100.00
-    "DOCEPIZZA": 0.15,  # 15% de desconto para pedidos só de pizzas doces
-    "PEDEMAIS5": 0.05  # 5% de desconto para qualquer pedido
-}
+cupom = ["PIZZA10", "DOCEPIZZA", "PEDEMAIS5"]
 
 def aplicarDesconto(total, pedido):
     while True:
@@ -12,11 +8,11 @@ def aplicarDesconto(total, pedido):
         
         if cupomDigitado in cupom:
             if cupomDigitado == "PIZZA10" and total >= 100.00:
-                desconto = total * cupom[cupomDigitado]
+                desconto = total * 0.10
             elif cupomDigitado == "DOCEPIZZA" and all(p["pizza"] in ["Chocolate", "Banana", "Brigadeiro", "Romeu e Julieta"] for p in pedido):
-                desconto = total * cupom[cupomDigitado]
+                desconto = total * 0.15
             elif cupomDigitado == "PEDEMAIS5":
-                desconto = total * cupom[cupomDigitado]
+                desconto = total * 0.05
             else:
                 print("\nCupom não aplicável para este pedido. Tente Novamente.")
                 continue

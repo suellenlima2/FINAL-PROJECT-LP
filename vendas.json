@@ -366,5 +366,18 @@
         ],
         "totalPedidoSemDesconto": 125.0,
         "pagamento": "Desconhecido"
+    },
+    {
+        "id": 27,
+        "pizzas": [
+            {
+                "pizza": "Calabresa",
+                "quantidade": 2,
+                "precoUnitario": 30.0,
+                "precoTotal": 60.0
+            }
+        ],
+        "totalPedidoSemDesconto": 60.0,
+        "pagamento": "Pix"
     }
 ]
