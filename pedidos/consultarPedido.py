@@ -1,4 +1,3 @@
-#modulo D
 import json
 
 def consultarPedido(id):
@@ -6,7 +5,8 @@ def consultarPedido(id):
     try:
         with open("vendas.json", "r") as arquivo:
             pedidos = json.load(arquivo)
-            
+        
+        #list comprehension 
         pedidoEncontrado = next((pedido for pedido in pedidos if pedido["id"] == id), None)
         
         if pedidoEncontrado:
@@ -18,9 +18,9 @@ def consultarPedido(id):
             print(f"\nPedido com ID {id} não encontrado.")
         
         opcao = input("\nDeseja consultar outro pedido? S | N: ").strip().upper()
-
+ 
         if opcao == 'S':
-            nId = int(input("Digite o número do pedido: "))
+            nId = int(input("Digite o número do pedido que você deseja consultar: "))
             consultarPedido(nId)
         else:
             menuPrincipal()

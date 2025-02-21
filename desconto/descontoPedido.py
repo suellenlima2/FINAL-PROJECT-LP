@@ -9,7 +9,7 @@ def aplicarDesconto(total, pedido):
         if cupomDigitado in cupom:
             if cupomDigitado == "PIZZA10" and total >= 100.00:
                 desconto = total * 0.10
-            elif cupomDigitado == "DOCEPIZZA" and all(p["pizza"] in ["Chocolate", "Banana", "Brigadeiro", "Romeu e Julieta"] for p in pedido):
+            elif cupomDigitado == "DOCEPIZZA" and all(p["pizza"] in ["Chocolate", "Banana", "Brigadeiro", "Romeu e Julieta", "Ouro Branco", "Banoffe", "Brigadeiro Branco"] for p in pedido):
                 desconto = total * 0.15
             elif cupomDigitado == "PEDEMAIS5":
                 desconto = total * 0.05

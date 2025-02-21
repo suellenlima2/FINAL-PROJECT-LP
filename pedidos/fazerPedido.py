@@ -1,9 +1,21 @@
-#modulo H
 from time import sleep
 from pizzas.exibirMenuPizzas import MenuPizzas
 from pedidos.registrarPedido import registrarPedido
 from desconto.descontoPedido import aplicarDesconto
 from endereco.enderecoPedido import enderecoEntrega
+
+def formatarNomePizza(nome):
+    palavras = nome.split()
+    if len(palavras) >= 3:
+        palavras[0] = palavras[0].capitalize()
+        palavras[1] = palavras[1].capitalize()
+        palavras[2] = palavras[2].capitalize()
+    elif len(palavras) == 2:
+        palavras[0] = palavras[0].capitalize()
+        palavras[1] = palavras[1].capitalize()
+    elif len(palavras) == 1:
+        palavras[0] = palavras[0].capitalize()
+    return " ".join(palavras)
 
 def fazerPedido():
      from menuPrincipal import menuPrincipal
@@ -12,8 +24,9 @@ def fazerPedido():
 
      while continuar == 's':
         sleep(1)
-        saborPizza = input("\nDigite o nome da pizza desejada: ").capitalize()
-        
+        saborPizza = input("\nDigite o nome da pizza desejada: ")
+        saborPizza = formatarNomePizza(saborPizza)  
+
         if saborPizza in MenuPizzas:
             quantidade = int(input(f"Digite a quantidade de pizzas do sabor {saborPizza}: "))
             precoUnitario = MenuPizzas[saborPizza]["preco"]
@@ -50,3 +63,4 @@ def fazerPedido():
             else:
                 print("\nNenhuma pizza foi pedida. Tente novamente.")
                 menuPrincipal()
+

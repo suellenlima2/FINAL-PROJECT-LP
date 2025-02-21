@@ -20,15 +20,19 @@ def menuPrincipal():
                 exibirPizzas()
                 continue
             elif opcao == 2:
+                sleep(1)
                 fazerPedido()
             elif opcao == 3:
-                idPedido = int(input("Digite o número do pedido: "))
+                sleep(1)
+                idPedido = int(input("Digite o número do pedido que você deseja consultar: "))
                 consultarPedido(idPedido)
             elif opcao == 4:
+                sleep(1)
                 cancelarPedido()
             elif opcao == 5:
+                sleep(1)
                 print("Volte Sempre!!!")
-                sleep(2)
+                sleep(3)  
                 sys.exit()
             else:
                 print("Opção inválida")

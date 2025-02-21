@@ -379,5 +379,132 @@
         ],
         "totalPedidoSemDesconto": 60.0,
         "pagamento": "Pix"
+    },
+    {
+        "id": 28,
+        "pizzas": [
+            {
+                "pizza": "Brigadeiro",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedidoSemDesconto": 30.0,
+        "pagamento": "Pix"
+    },
+    {
+        "id": 29,
+        "pizzas": [
+            {
+                "pizza": "Calabresa",
+                "quantidade": 2,
+                "precoUnitario": 30.0,
+                "precoTotal": 60.0
+            },
+            {
+                "pizza": "Banana",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedidoSemDesconto": 90.0,
+        "pagamento": "Pix"
+    },
+    {
+        "id": 30,
+        "pizzas": [
+            {
+                "pizza": "Quatro Queijos",
+                "quantidade": 2,
+                "precoUnitario": 35.0,
+                "precoTotal": 70.0
+            }
+        ],
+        "totalPedidoSemDesconto": 70.0,
+        "pagamento": "Pix"
+    },
+    {
+        "id": 31,
+        "pizzas": [
+            {
+                "pizza": "Romeu E Julieta",
+                "quantidade": 2,
+                "precoUnitario": 35.0,
+                "precoTotal": 70.0
+            },
+            {
+                "pizza": "Chocolate",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedidoSemDesconto": 100.0,
+        "pagamento": "Desconhecido"
+    },
+    {
+        "id": 32,
+        "pizzas": [
+            {
+                "pizza": "Mussarela",
+                "quantidade": 2,
+                "precoUnitario": 25.0,
+                "precoTotal": 50.0
+            },
+            {
+                "pizza": "Bacon",
+                "quantidade": 3,
+                "precoUnitario": 35.0,
+                "precoTotal": 105.0
+            }
+        ],
+        "totalPedidoSemDesconto": 155.0,
+        "pagamento": "Dinheiro"
+    },
+    {
+        "id": 33,
+        "pizzas": [
+            {
+                "pizza": "Banana",
+                "quantidade": 2,
+                "precoUnitario": 30.0,
+                "precoTotal": 60.0
+            },
+            {
+                "pizza": "Chocolate",
+                "quantidade": 2,
+                "precoUnitario": 30.0,
+                "precoTotal": 60.0
+            }
+        ],
+        "totalPedidoSemDesconto": 120.0,
+        "pagamento": "Pix"
+    },
+    {
+        "id": 34,
+        "pizzas": [
+            {
+                "pizza": "Ouro Branco",
+                "quantidade": 1,
+                "precoUnitario": 40.0,
+                "precoTotal": 40.0
+            },
+            {
+                "pizza": "Banoffe",
+                "quantidade": 1,
+                "precoUnitario": 40.0,
+                "precoTotal": 40.0
+            },
+            {
+                "pizza": "Brigadeiro Branco",
+                "quantidade": 1,
+                "precoUnitario": 30.0,
+                "precoTotal": 30.0
+            }
+        ],
+        "totalPedidoSemDesconto": 110.0,
+        "pagamento": "Pix"
     }
 ]

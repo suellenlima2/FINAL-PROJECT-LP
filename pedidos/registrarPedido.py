@@ -1,4 +1,3 @@
-#modulo J
 from vendas.vendas import carregarVendas, salvarVendas
 from pagamentos.pagamentoPedido import escolherPagamento
 
